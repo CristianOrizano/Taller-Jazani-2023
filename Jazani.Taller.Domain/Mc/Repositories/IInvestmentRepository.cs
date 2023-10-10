@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Jazani.Taller.Domain.Mc.Repositories
 {
-    public interface IInvestmentRepository : ICrudRepository<Investment, int>
+    public interface IInvestmentRepository : ICrudRepository<Investment, int>, IPaginatedRepository<Investment>
     {
 
 

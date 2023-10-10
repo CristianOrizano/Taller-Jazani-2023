@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JAZANI-TALLER-Orizano", "JAZANI-TALLER-Orizano\JAZANI-TALLER-Orizano.csproj", "{15CABEFD-6D6E-4321-8C71-F961A87BAB53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JAZANI-TALLER-Orizano", "JAZANI-TALLER-Orizano\JAZANI-TALLER-Orizano.csproj", "{15CABEFD-6D6E-4321-8C71-F961A87BAB53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jazani.Taller.Domain", "Jazani.Taller.Domain\Jazani.Taller.Domain.csproj", "{021477C8-D16E-450A-8C00-F106141FCEC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jazani.Taller.Domain", "Jazani.Taller.Domain\Jazani.Taller.Domain.csproj", "{021477C8-D16E-450A-8C00-F106141FCEC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jazani.Taller.Infrastructure", "Jazani.Taller.Infrastructure\Jazani.Taller.Infrastructure.csproj", "{A9E17E51-5FCF-4C96-86B4-04343CE521DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jazani.Taller.Infrastructure", "Jazani.Taller.Infrastructure\Jazani.Taller.Infrastructure.csproj", "{A9E17E51-5FCF-4C96-86B4-04343CE521DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jazani.Taller.Aplication", "Jazani.Taller.Aplication\Jazani.Taller.Aplication.csproj", "{C7310D00-35BC-4F66-A7DE-FFF28721107B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jazani.Taller.Aplication", "Jazani.Taller.Aplication\Jazani.Taller.Aplication.csproj", "{C7310D00-35BC-4F66-A7DE-FFF28721107B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jazani.Core", "Jazani.Core\Jazani.Core.csproj", "{1BECF0C8-2996-4758-A142-828288C88F1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C7310D00-35BC-4F66-A7DE-FFF28721107B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7310D00-35BC-4F66-A7DE-FFF28721107B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7310D00-35BC-4F66-A7DE-FFF28721107B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BECF0C8-2996-4758-A142-828288C88F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BECF0C8-2996-4758-A142-828288C88F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BECF0C8-2996-4758-A142-828288C88F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BECF0C8-2996-4758-A142-828288C88F1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

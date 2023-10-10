@@ -1,4 +1,5 @@
-﻿using Jazani.Taller.Aplication.Mc.Dtos.Investmentconcepts;
+﻿using Jazani.Core.Pagination;
+using Jazani.Taller.Aplication.Mc.Dtos.Investmentconcepts;
 using Jazani.Taller.Aplication.Mc.Dtos.Investments;
 using Jazani.Taller.Aplication.Mc.Services;
 using JAZANI_TALLER_Orizano.Exceptions;
@@ -65,6 +66,12 @@ namespace JAZANI_TALLER_Orizano.Controllers.Mc
         public async Task<InvestmentDto> Delete(int id)
         {
             return await _invesmenService.DisabledAsync(id);
+        }
+
+        [HttpGet("PaginatedSearch")]
+        public async Task<ResponsePagination<InvestmentDto>> PaginatedSearch([FromQuery] RequestPagination<InvesmentFilterDto> request)
+        {
+            return await _invesmenService.PaginatedSearch(request);
         }
     }
 }

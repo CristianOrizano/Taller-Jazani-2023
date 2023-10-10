@@ -1,4 +1,5 @@
-﻿using Jazani.Taller.Aplication.Mc.Dtos.Investments;
+﻿using Jazani.Taller.Aplication.Cores.Services;
+using Jazani.Taller.Aplication.Mc.Dtos.Investments;
 using Jazani.Taller.Aplication.Mc.Dtos.Investmenttypes;
 using Jazani.Taller.Domain.Mc.Models;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Jazani.Taller.Aplication.Mc.Services
 {
-    public interface IInvestmentService
+    public interface IInvestmentService : IPaginatedService<InvestmentDto, InvesmentFilterDto>
     {
         Task<IReadOnlyList<InvestmentDto>> FindAllAsync();
         Task<InvestmentDto?> FindByIdAsync(int id);

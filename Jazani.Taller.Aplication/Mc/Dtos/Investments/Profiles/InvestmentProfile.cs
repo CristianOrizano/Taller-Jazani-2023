@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Jazani.Core.Pagination;
 using Jazani.Taller.Aplication.Mc.Dtos.Investmentconcepts;
 using Jazani.Taller.Domain.Mc.Models;
 using System;
@@ -14,7 +15,15 @@ namespace Jazani.Taller.Aplication.Mc.Dtos.Investments.Profiles
         public InvestmentProfile()
         {
             CreateMap<Investment, InvestmentDto>();
+
+
             CreateMap<Investment, InvestmentSaveDto>().ReverseMap();
+
+            CreateMap<Investment, InvesmentFilterDto>().ReverseMap();
+
+            CreateMap<ResponsePagination<Investment>, ResponsePagination<InvestmentDto>>();
+            CreateMap<RequestPagination<Investment>, RequestPagination<InvesmentFilterDto>>()
+                .ReverseMap();
 
         }
     }

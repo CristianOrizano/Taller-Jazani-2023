@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Jazani.Core.Pagination;
 using Jazani.Taller.Aplication.Cores.Exceptions;
 using Jazani.Taller.Aplication.Mc.Dtos.Investmentconcepts;
 using Jazani.Taller.Aplication.Mc.Dtos.Investments;
@@ -76,6 +77,14 @@ namespace Jazani.Taller.Aplication.Mc.Services.Implemetations
             _logger.LogInformation("Tipo de Invesment {name}", invesm.Description);
 
             return _mapper.Map<InvestmentDto>(invesm);
+        }
+
+        public async Task<ResponsePagination<InvestmentDto>> PaginatedSearch(RequestPagination<InvesmentFilterDto> request)
+        {
+            var entity = _mapper.Map<RequestPagination<Investment>>(request);
+            var response = await _invesmepeRepository.PaginatedSearch(entity);
+
+            return _mapper.Map<ResponsePagination<InvestmentDto>>(response);
         }
 
         private NotFoundCoreException InvesmentNotFound(int id)

@@ -1,4 +1,6 @@
-﻿using Jazani.Taller.Domain.Mc.Models;
+﻿using Jazani.Core.Pagination;
+using Jazani.Taller.Domain.Cores.Paginations;
+using Jazani.Taller.Domain.Mc.Models;
 using Jazani.Taller.Domain.Mc.Repositories;
 using Jazani.Taller.Infrastructure.Cores.Context;
 using Jazani.Taller.Infrastructure.Cores.Persistences;
@@ -14,9 +16,11 @@ namespace Jazani.Taller.Infrastructure.Mc.Persistences
     public class InvestmentRepository : CrudRepository<Investment, int>, IInvestmentRepository
     {
         private readonly AplicationDbContext _dbContext;
-        public InvestmentRepository(AplicationDbContext dbContext) : base(dbContext)
+        private readonly IPaginator<Investment> _paginator;
+        public InvestmentRepository(AplicationDbContext dbContext, IPaginator<Investment> paginator) : base(dbContext)
         {
             _dbContext = dbContext;
+            _paginator = paginator;
         }
 
         public override async Task<IReadOnlyList<Investment>> FindAllAsync()
@@ -37,7 +41,29 @@ namespace Jazani.Taller.Infrastructure.Mc.Persistences
                .FirstOrDefaultAsync(t => t.Id == id);
         }
 
+        public async Task<ResponsePagination<Investment>> PaginatedSearch(RequestPagination<Investment> request)
+        {
+            var filter = request.Filter;
+            var query = _dbContext.Set<Investment>().AsQueryable();
 
+            if (filter is not null)
+            {
+                query = query
+                    .Where(x =>
+                        (string.IsNullOrWhiteSpace(filter.Description) || x.Description.ToUpper().Contains(filter.Description.ToUpper()))
+                        && (string.IsNullOrWhiteSpace(filter.Description) || x.Description.ToUpper().Contains(filter.Description.ToUpper()))
+                    );
+            }
+            query = query.OrderByDescending(x => x.Id)
+              .Include(t => t.Investmentconcept)
+            .Include(t => t.Holder)
+            .Include(t => t.Investmenttype)
+            .Include(t => t.MiningConcession)
+            .Include(t => t.MeasureUnit)
+            .Include(t => t.PeriodType)
+            ;
 
+            return await _paginator.Paginate(query, request);
+        }
     }
 }
