@@ -14,9 +14,8 @@ namespace Jazani.Taller.Aplication.Mc.Dtos.Investments
 {
     public class InvesmentFilterDto
     {
-        public int Id { get; set; }
         public string? Description { get; set; }
-        public int DeclaredTypeId { get; set; }
-        public bool State { get; set; }
+        public int CurrencyTypeId { get; set; }
+
     }
 }

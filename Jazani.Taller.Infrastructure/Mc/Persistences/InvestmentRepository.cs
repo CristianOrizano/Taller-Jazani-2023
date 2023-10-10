@@ -50,8 +50,8 @@ namespace Jazani.Taller.Infrastructure.Mc.Persistences
             {
                 query = query
                     .Where(x =>
-                        (string.IsNullOrWhiteSpace(filter.Description) || x.Description.ToUpper().Contains(filter.Description.ToUpper()))
-                        && (string.IsNullOrWhiteSpace(filter.Description) || x.Description.ToUpper().Contains(filter.Description.ToUpper()))
+                        (string.IsNullOrWhiteSpace(filter.Description) || x.Description.ToUpper().Contains(filter.Description.ToUpper()))       
+                   && (filter.CurrencyTypeid == null || x.CurrencyTypeid == filter.CurrencyTypeid)
                     );
             }
             query = query.OrderByDescending(x => x.Id)
