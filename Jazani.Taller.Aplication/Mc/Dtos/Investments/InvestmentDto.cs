@@ -25,7 +25,7 @@ namespace Jazani.Taller.Aplication.Mc.Dtos.Investments
         public HolderSimpleDto? Holder { get; set; }
         public InvestmenttypeSimpleDto? Investmenttype { get; set; }
 
-        public int CurrencyTypeId { get; set; }
+        public int CurrencyTypeid { get; set; }
         public DateTimeOffset RegistrationDate { get; set; }
         public int DeclaredTypeId { get; set; }
         public bool State { get; set; }
